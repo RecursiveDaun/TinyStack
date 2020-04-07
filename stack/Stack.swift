@@ -19,7 +19,6 @@ public class Stack<T> {
     
     // MARK: - Public Methods
     public func push(data: T) {
-        
         defer { counter += 1 }
         guard top != nil else {
             top = Node(prev: nil, data: data)
@@ -33,18 +32,16 @@ public class Stack<T> {
     }
     
     public func pop() {
-        
         guard self.top != nil else {
             print("stack is empty")
             return
         }
+
         counter -= 1
-        
         let prevTop = top?.prev
         prevTop?.next = nil
         top = nil
         self.top = prevTop
-        
     }
     
 }
@@ -58,14 +55,11 @@ fileprivate class Node<T> {
     fileprivate var prev: Node?
     fileprivate var data: T?
     
-    
     // MARK: - Lifecycle
     init(prev: Node<T>? = nil, data: T? = nil) {
-        
         self.prev = prev
         self.next = nil
         self.data = data
-        
     }
     
     deinit {
@@ -74,7 +68,6 @@ fileprivate class Node<T> {
         data = nil
         self.next = nil
         self.prev = nil
-        
     }
     
 }
